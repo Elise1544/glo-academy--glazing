@@ -35,9 +35,21 @@ eval("\nmodule.exports = function () {\n\treturn /[\\u001b\\u009b][[()#;?]*(?:[0
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\n\n//# sourceURL=webpack://glo-academy--glazing/./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_callback__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/callback */ \"./src/modules/callback.js\");\n\n\n\n(0,_modules_callback__WEBPACK_IMPORTED_MODULE_0__.default)();\n\n//# sourceURL=webpack://glo-academy--glazing/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/callback.js":
+/*!*********************************!*\
+  !*** ./src/modules/callback.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n\nvar callback = function callback() {\n  var btnCallback = document.querySelectorAll('a[href^=\"#callback\"]'),\n      modal = document.querySelector('.header-modal'),\n      overlay = document.querySelector('.overlay');\n  btnCallback.forEach(function (button) {\n    button.addEventListener('click', function () {\n      modal.style.display = 'block';\n      overlay.style.display = 'block';\n    });\n  });\n  modal.addEventListener('click', function (evt) {\n    var target = evt.target;\n\n    if (target.classList.contains('header-modal__close')) {\n      modal.style.display = 'none';\n      overlay.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (callback);\n\n//# sourceURL=webpack://glo-academy--glazing/./src/modules/callback.js?");
 
 /***/ }),
 
@@ -411,6 +423,18 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	__webpack_require__.i = [];
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/get javascript update chunk filename */
 /******/ 	(() => {
 /******/ 		// This function allow to reference all chunks
@@ -427,7 +451,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("13683a40b75d8b8235f1")
+/******/ 		__webpack_require__.h = () => ("5c0d14e95b8ba65309b3")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -490,6 +514,17 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
 /******/ 			script.onload = onScriptComplete.bind(null, script.onload);
 /******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
 /******/ 	
