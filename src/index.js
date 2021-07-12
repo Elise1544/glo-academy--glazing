@@ -5,12 +5,12 @@ import Carousel from './modules/carousel';
 
 callback();
 
-
 const adventages = new Carousel({
   main: '.benefits-inner',
   wrap: '.benefits-wrap', 
   prev: '.benefits__arrow--left',
   next: '.benefits__arrow--right',
+  slidesToShow: 3,
   responsive: [
     {
       breakpoint: 768,
@@ -21,7 +21,8 @@ const adventages = new Carousel({
       slidesToShow: 1
     }
   ],
-  infinity: true
+  infinity: true,
+  styleName: 'benefits'
 });
 adventages.init();
 
@@ -41,6 +42,7 @@ const services = new Carousel({
       slidesToShow: 1
     }
   ],
-  infinity: true
+  infinity: true,
+  styleName: 'services'
 });
 services.init();

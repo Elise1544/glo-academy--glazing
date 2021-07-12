@@ -1,7 +1,7 @@
 'use strict';
 
 class Carousel {
-  constructor({ main, wrap, prev, next, infinity = false, position = 0, slidesToShow = 3, responsive = [] }) {
+  constructor({ main, wrap, prev, next, infinity = false, position = 0, slidesToShow = 3, responsive = [], styleName }) {
     this.main = document.querySelector(main);
     this.wrap = document.querySelector(wrap);
     this.slides = document.querySelector(wrap).children;
@@ -12,6 +12,7 @@ class Carousel {
     this.slidesToShow = slidesToShow;
     this.widthSlide = Math.floor(100 / this.slidesToShow);
     this.responsive = responsive;
+    this.styleName = styleName;
   }
 
   init() {
@@ -25,40 +26,58 @@ class Carousel {
   }
 
   addClasses() {
-    this.main.classList.add('carousel')
+    this.main.classList.add('carousel');
     this.wrap.classList.add('carousel-wrap');
     for (const item of this.slides) {
-      item.classList.add('carousel-item');
+      item.classList.add(`carousel-item--${this.styleName}`);
     }
   }
 
   addStyle() {
-    let style = document.querySelector('.carousel-style');
+    let style = document.head.querySelector('style');
 
-    if (!style) {
+    if (!style || !style.classList.contains(this.styleName)) {
       style = document.createElement('style');
-      style.classList.add('carousel-style');
+      style.classList.add(this.styleName);
     }
 
-    style.textContent = `
-    .carousel {
-      overflow: hidden;
+    if (this.styleName === 'benefits') {
+      style.textContent = `
+        .carousel {
+          overflow: hidden;
+        }
+        .carousel-wrap {
+          display: flex;
+          max-width: 100%;
+          transition: transform 0.5s;
+          will-change: transform;
+        }
+        .carousel-item--benefits {
+          flex: 0 0 ${this.widthSlide}%;
+          margin: auto 0;
+          max-width: 100%;
+        }
+      `;
+    } else {
+      style.textContent = `
+        .carousel {
+          overflow: hidden;
+        }
+        .carousel-wrap {
+          display: flex;
+          max-width: 100%;
+          transition: transform 0.5s;
+          will-change: transform;
+        }
+        .carousel-item--services {
+          flex: 0 0 ${this.widthSlide}%;
+          margin: auto 0;
+          max-width: 100%;
+        }
+      `;
     }
-    .carousel-wrap {
-      display: flex;
-      max-width: 100%;
-      transition: transform 0.5s;
-      will-change: transform;
-    }
-    .carousel-item {
-      flex: 0 0 ${this.widthSlide}%;
-      margin: auto 0;
-      max-width: 100%;
-    }
-    `;
 
     document.head.append(style);
-    // this.wrap.style.transform = `translateX(0)`
   }
 
   controlSlider() {
