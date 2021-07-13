@@ -2,8 +2,10 @@
 
 import callback from './modules/callback';
 import Carousel from './modules/carousel';
+import measurer from './modules/measurer';
 
 callback();
+measurer();
 
 const adventages = new Carousel({
   main: '.benefits-inner',
