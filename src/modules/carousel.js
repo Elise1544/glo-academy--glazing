@@ -1,48 +1,50 @@
-'use strict';
+
 
 class Carousel {
-  constructor({ main, wrap, prev, next, infinity = false, position = 0, slidesToShow = 3, responsive = [], styleName }) {
-    this.main = document.querySelector(main);
-    this.wrap = document.querySelector(wrap);
-    this.slides = document.querySelector(wrap).children;
-    this.prev = document.querySelector(prev);
-    this.next = document.querySelector(next);
-    this.infinity = infinity;
-    this.position = position;
-    this.slidesToShow = slidesToShow;
-    this.widthSlide = Math.floor(100 / this.slidesToShow);
-    this.responsive = responsive;
-    this.styleName = styleName;
-  }
+	constructor({ main, wrap, prev, next,
+		infinity = false, position = 0,
+		slidesToShow = 3, responsive = [], styleName }) {
+		this.main = document.querySelector(main);
+		this.wrap = document.querySelector(wrap);
+		this.slides = document.querySelector(wrap).children;
+		this.prev = document.querySelector(prev);
+		this.next = document.querySelector(next);
+		this.infinity = infinity;
+		this.position = position;
+		this.slidesToShow = slidesToShow;
+		this.widthSlide = Math.floor(100 / this.slidesToShow);
+		this.responsive = responsive;
+		this.styleName = styleName;
+	}
 
-  init() {
-    this.addClasses();
-    this.addStyle();
-    this.controlSlider();
+	init() {
+		this.addClasses();
+		this.addStyle();
+		this.controlSlider();
 
-    if (this.responsive) {
-      this.responseInit();
-    }
-  }
+		if (this.responsive) {
+			this.responseInit();
+		}
+	}
 
-  addClasses() {
-    this.main.classList.add('carousel');
-    this.wrap.classList.add('carousel-wrap');
-    for (const item of this.slides) {
-      item.classList.add(`carousel-item--${this.styleName}`);
-    }
-  }
+	addClasses() {
+		this.main.classList.add('carousel');
+		this.wrap.classList.add('carousel-wrap');
+		for (const item of this.slides) {
+			item.classList.add(`carousel-item--${this.styleName}`);
+		}
+	}
 
-  addStyle() {
-    let style = document.head.querySelector('style');
+	addStyle() {
+		let style = document.head.querySelector('style');
 
-    if (!style || !style.classList.contains(this.styleName)) {
-      style = document.createElement('style');
-      style.classList.add(this.styleName);
-    }
+		if (!style || !style.classList.contains(this.styleName)) {
+			style = document.createElement('style');
+			style.classList.add(this.styleName);
+		}
 
-    if (this.styleName === 'benefits') {
-      style.textContent = `
+		if (this.styleName === 'benefits') {
+			style.textContent = `
         .carousel {
           overflow: hidden;
         }
@@ -58,8 +60,8 @@ class Carousel {
           max-width: 100%;
         }
       `;
-    } else {
-      style.textContent = `
+		} else {
+			style.textContent = `
         .carousel {
           overflow: hidden;
         }
@@ -75,61 +77,61 @@ class Carousel {
           max-width: 100%;
         }
       `;
-    }
+		}
 
-    document.head.append(style);
-  }
+		document.head.append(style);
+	}
 
-  controlSlider() {
-    this.prev.addEventListener('click', this.prevSlide.bind(this));
-    this.next.addEventListener('click', this.nextSlide.bind(this));
-  }
+	controlSlider() {
+		this.prev.addEventListener('click', this.prevSlide.bind(this));
+		this.next.addEventListener('click', this.nextSlide.bind(this));
+	}
 
-  prevSlide() {
-    if (this.infinity || this.position > 0) {
-      --this.position;
-      if (this.position < 0) {
-        this.position = this.slides.length - this.slidesToShow;
-      }
-      this.wrap.style.transform = `translateX(-${this.position * this.widthSlide}%)`;
-    }
-  }
+	prevSlide() {
+		if (this.infinity || this.position > 0) {
+			--this.position;
+			if (this.position < 0) {
+				this.position = this.slides.length - this.slidesToShow;
+			}
+			this.wrap.style.transform = `translateX(-${this.position * this.widthSlide}%)`;
+		}
+	}
 
-  nextSlide() {
-    if (this.infinity || this.position < this.slides.length - this.slidesToShow) {
-      ++this.position;
-      if (this.position > this.slides.length - this.slidesToShow) {
-        this.position = 0;
-      }
-      this.wrap.style.transform = `translateX(-${this.position * this.widthSlide}%)`;
-    }
-  }
+	nextSlide() {
+		if (this.infinity || this.position < this.slides.length - this.slidesToShow) {
+			++this.position;
+			if (this.position > this.slides.length - this.slidesToShow) {
+				this.position = 0;
+			}
+			this.wrap.style.transform = `translateX(-${this.position * this.widthSlide}%)`;
+		}
+	}
 
-  responseInit() {
-    const slidesToShowDefault = this.slidesToShow;
-    const allResponse = this.responsive.map(item => item.breakpoint);
-    const maxResponse = Math.max(...allResponse);
+	responseInit() {
+		const slidesToShowDefault = this.slidesToShow;
+		const allResponse = this.responsive.map(item => item.breakpoint);
+		const maxResponse = Math.max(...allResponse);
 
-    const checkResponse = () => {
-      if (document.documentElement.clientWidth < maxResponse) {
-        for (let i = 0; i < allResponse.length; i++) {
-          if (document.documentElement.clientWidth < allResponse[i]) {
-            this.position = 0;
-            this.slidesToShow = this.responsive[i].slidesToShow;
-            this.widthSlide = Math.floor(100 / this.slidesToShow);
-            this.addStyle();
-          }
-        }
-      } else {
-        this.slidesToShow = slidesToShowDefault;
-        this.widthSlide = Math.floor(100 / this.slidesToShow);
-        this.addStyle();
-        this.wrap.style.transform = `translateX(-0%)`;
-      }
-    };
-    checkResponse();
-    window.addEventListener('resize', checkResponse);
-  }
+		const checkResponse = () => {
+			if (document.documentElement.clientWidth < maxResponse) {
+				for (let i = 0; i < allResponse.length; i++) {
+					if (document.documentElement.clientWidth < allResponse[i]) {
+						this.position = 0;
+						this.slidesToShow = this.responsive[i].slidesToShow;
+						this.widthSlide = Math.floor(100 / this.slidesToShow);
+						this.addStyle();
+					}
+				}
+			} else {
+				this.slidesToShow = slidesToShowDefault;
+				this.widthSlide = Math.floor(100 / this.slidesToShow);
+				this.addStyle();
+				this.wrap.style.transform = `translateX(-0%)`;
+			}
+		};
+		checkResponse();
+		window.addEventListener('resize', checkResponse);
+	}
 }
 
 export default Carousel;
