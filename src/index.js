@@ -4,10 +4,12 @@ import callback from './modules/callback';
 import Carousel from './modules/carousel';
 import measurer from './modules/measurer';
 import timer from './modules/timer';
+import validation from './modules/validation';
 
 callback();
 measurer();
 timer('19 july 2021');
+validation();
 
 const adventages = new Carousel({
   main: '.benefits-inner',

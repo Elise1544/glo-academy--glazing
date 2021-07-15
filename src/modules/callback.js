@@ -12,9 +12,16 @@ const callback = () => {
 		});
 	});
 
-	modal.addEventListener('click', evt => {
+	window.addEventListener('click', evt => {
 		const target = evt.target;
-		if (target.classList.contains('header-modal__close')) {
+		if (target.classList.contains('header-modal__close') || target.classList.contains('overlay')) {
+			modal.style.display = 'none';
+			overlay.style.display = 'none';
+		}
+	});
+
+	window.addEventListener('keydown', evt => {
+		if (evt.key === 'Escape') {
 			modal.style.display = 'none';
 			overlay.style.display = 'none';
 		}
