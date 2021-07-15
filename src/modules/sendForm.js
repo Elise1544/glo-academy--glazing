@@ -1,5 +1,5 @@
 const sendForm = () => {
-	const formBlocks = document.querySelectorAll('.form-horizontal'),
+	const formBlocks = document.querySelectorAll('form'),
 		allInput = document.querySelectorAll('input');
 	allInput.required = 'required';
 	const statusMessage = document.createElement('div');
@@ -51,7 +51,6 @@ const sendForm = () => {
 			for (const item of form.elements) {
 				if (item !== form.querySelector('button')) {
 					if (item.value === '') {
-						console.log(item);
 						flag = false;
 						item.style.border = '1px solid red';
 						return false;
