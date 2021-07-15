@@ -1,5 +1,3 @@
-
-
 const measurer = () => {
 	const measurerBtns = document.querySelectorAll('a[href^="#application"]'),
 		measureModal = document.querySelector('.services-modal'),

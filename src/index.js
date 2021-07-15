@@ -3,6 +3,7 @@
 import callback from './modules/callback';
 import Carousel from './modules/carousel';
 import measurer from './modules/measurer';
+import sendForm from './modules/sendForm';
 import timer from './modules/timer';
 import validation from './modules/validation';
 
@@ -10,6 +11,7 @@ callback();
 measurer();
 timer('19 july 2021');
 validation();
+sendForm();
 
 const adventages = new Carousel({
   main: '.benefits-inner',

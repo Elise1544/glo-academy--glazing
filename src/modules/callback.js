@@ -1,5 +1,3 @@
-
-
 const callback = () => {
 	const btnCallback = document.querySelectorAll('a[href^="#callback"]'),
 		modal = document.querySelector('.header-modal'),

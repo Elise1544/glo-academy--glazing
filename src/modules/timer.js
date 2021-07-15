@@ -1,5 +1,3 @@
-
-
 const timer = deadline => {
 	const timerBlocks = document.querySelectorAll('.count-wrap');
 

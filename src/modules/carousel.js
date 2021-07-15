@@ -1,5 +1,3 @@
-
-
 class Carousel {
 	constructor({ main, wrap, prev, next,
 		infinity = false, position = 0,
