@@ -6,12 +6,14 @@ import measurer from './modules/measurer';
 import sendForm from './modules/sendForm';
 import timer from './modules/timer';
 import validation from './modules/validation';
+import smoothScroll from './modules/smoothScroll';
 
 callback();
 measurer();
 timer('19 july 2021');
 validation();
 sendForm();
+smoothScroll();
 
 const adventages = new Carousel({
   main: '.benefits-inner',
