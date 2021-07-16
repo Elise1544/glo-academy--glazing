@@ -7,11 +7,13 @@ import sendForm from './modules/sendForm';
 import timer from './modules/timer';
 import validation from './modules/validation';
 import smoothScroll from './modules/smoothScroll';
+import calc from './modules/calc';
 
 callback();
 measurer();
 timer('19 july 2021');
 validation();
+calc();
 sendForm();
 smoothScroll();
 

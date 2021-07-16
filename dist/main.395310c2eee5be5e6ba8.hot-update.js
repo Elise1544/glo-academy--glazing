@@ -8,14 +8,14 @@
  */
 self["webpackHotUpdateglo_academy_glazing"]("main",{
 
-/***/ "./src/modules/smoothScroll.js":
-/*!*************************************!*\
-  !*** ./src/modules/smoothScroll.js ***!
-  \*************************************/
+/***/ "./src/modules/calc.js":
+/*!*****************************!*\
+  !*** ./src/modules/calc.js ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar smoothScroll = function smoothScroll() {\n  var button = document.querySelector('.smooth-scroll');\n  window.addEventListener('scroll', function () {\n    if (pageYOffset > 860) {\n      button.style.display = 'block';\n    } else {\n      button.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (smoothScroll);\n\n//# sourceURL=webpack://glo-academy--glazing/./src/modules/smoothScroll.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar calc = function calc() {\n  var type = document.querySelector('#calc-type'),\n      material = document.querySelector('#calc-type-material'),\n      calcInput = document.querySelector('#calc-input');\n\n  if (document.querySelector('#calc-total')) {\n    window.calc = document.querySelector('#calc-total');\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calc);\n\n//# sourceURL=webpack://glo-academy--glazing/./src/modules/calc.js?");
 
 /***/ })
 
@@ -25,7 +25,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 
 /******/ /* webpack/runtime/getFullHash */
 /******/ (() => {
-/******/ 	__webpack_require__.h = () => ("46444bdea8f2529e3f94")
+/******/ 	__webpack_require__.h = () => ("90d70322eacbc40e740a")
 /******/ })();
 /******/ 
 /******/ }

@@ -1,5 +1,5 @@
 const sendForm = () => {
-	const formBlocks = document.querySelectorAll('.form-horizontal'),
+	const formBlocks = document.querySelectorAll('form'),
 		allInput = document.querySelectorAll('input');
 	allInput.required = 'required';
 	const statusMessage = document.createElement('div');
@@ -25,6 +25,11 @@ const sendForm = () => {
 		formData.forEach(input => {
 			body[input.name] = input.value;
 		});
+		if (document.querySelector('#calc-total')) {
+			if (document.querySelector('#calc-total').value !== '') {
+				body['calc'] = window.calc.value;
+			}
+		}
 
 		postData(body)
 			.then(response => {
@@ -51,7 +56,6 @@ const sendForm = () => {
 			for (const item of form.elements) {
 				if (item !== form.querySelector('button')) {
 					if (item.value === '') {
-						console.log(item);
 						flag = false;
 						item.style.border = '1px solid red';
 						return false;
