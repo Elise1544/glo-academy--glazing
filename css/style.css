@@ -1679,3 +1679,7 @@ input.error {
     max-width: 576px;
   }
 }
+
+.certificate-document {
+  display: inline-block;
+}

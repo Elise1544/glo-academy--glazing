@@ -8,6 +8,7 @@ import timer from './modules/timer';
 import validation from './modules/validation';
 import smoothScroll from './modules/smoothScroll';
 import calc from './modules/calc';
+import certificate from './modules/certificate';
 
 callback();
 measurer();
@@ -16,6 +17,7 @@ validation();
 calc();
 sendForm();
 smoothScroll();
+certificate();
 
 const adventages = new Carousel({
   main: '.benefits-inner',
