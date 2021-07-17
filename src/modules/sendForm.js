@@ -55,7 +55,9 @@ const sendForm = () => {
 			let flag = false;
 			for (const item of form.elements) {
 				if (item !== form.querySelector('button')) {
-					if (item.value === '') {
+					if (item.value === '' || 
+					(item.name === 'fio' && item.value.length < 2) || 
+					(item.name === 'phone' && item.value.length < 11)) {
 						flag = false;
 						item.style.border = '1px solid red';
 						return false;

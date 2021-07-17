@@ -32,7 +32,9 @@ const certificate = () => {
 	};
 
 	overlay.addEventListener('click', () => {
-		closeCertificate();
+		if (div) {
+			closeCertificate();
+		}
 	});
 
 	window.addEventListener('keydown', evt => {

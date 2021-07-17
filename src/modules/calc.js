@@ -11,11 +11,11 @@ const calc = () => {
 			const target = evt.target;
 			if (target === type || target === material || target === calcInput) {
 				calcInput.addEventListener('input', () => {
-					calcInput.value = calcInput.value.replace(/\D/, '');
+					calcInput.value = calcInput.value.replace(/\D\./, '');
 				});
 
 				if (type.value !== '--' && material.value !== '--') {
-					window.calc.value = type.value * material.value * calcInput.value;
+					window.calc.value = (type.value * material.value * calcInput.value).toFixed(2);
 				}
 
 			}
