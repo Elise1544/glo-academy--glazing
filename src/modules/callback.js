@@ -1,9 +1,17 @@
 const callback = () => {
 	const btnCallback = document.querySelectorAll('a[href^="#callback"]'),
+		orderBlocks = document.querySelectorAll('a[href^="#order"]'),
 		modal = document.querySelector('.header-modal'),
 		overlay = document.querySelector('.overlay');
 
 	btnCallback.forEach(button => {
+		button.addEventListener('click', () => {
+			modal.style.display = 'block';
+			overlay.style.display = 'block';
+		});
+	});
+
+	orderBlocks.forEach(button => {
 		button.addEventListener('click', () => {
 			modal.style.display = 'block';
 			overlay.style.display = 'block';
