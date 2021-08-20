@@ -12,7 +12,7 @@ import certificate from './modules/certificate';
 
 callback();
 measurer();
-timer('19 july 2021');
+timer('31 dec 2021');
 validation();
 calc();
 sendForm();
